@@ -19,8 +19,8 @@ export default function Model() {
   });
 
   // camera control
-  const cameraControlSmall = useRef();
-  const cameraControlLarge = useRef();
+  const cameraControlSmall = useRef(null);
+  const cameraControlLarge = useRef(null);
 
   // model
   const small = useRef(new THREE.Group());
@@ -30,6 +30,9 @@ export default function Model() {
   const [largeRotation, setLargeRotation] = useState(0);
 
   const tl = gsap.timeline() 
+  // useEffect(()=>{
+  //   cameraControlSmall.current.enabled =false
+  // },[cameraControlSmall, cameraControlLarge])
 
   useEffect(()=>{
     if(size === 'large'){
