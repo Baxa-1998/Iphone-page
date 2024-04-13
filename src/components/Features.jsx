@@ -2,24 +2,22 @@ import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import { animateWithGsap } from '../utils/animation';
 import { explore1Img, explore2Img, exploreVideo } from '../utils';
-import gsap from 'gsap'
-import { ScrollTrigger } from "gsap/all"
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 export default function Features() {
   const videoRef = useRef();
   useGSAP(() => {
     gsap.to('#exploreVideo', {
-      
       scrollTrigger: {
         trigger: '#exploreVideo',
         toggleActions: 'play pause reverse restart',
         start: '-10% bottom',
-      
       },
-      onComplete: ()=>{
-        video.play()
-      }
-    })
+      onComplete: () => {
+        videoRef.current.play();
+      },
+    });
     animateWithGsap('#features_title', {
       y: 0,
       opacity: 1,
@@ -87,10 +85,8 @@ export default function Features() {
                 </div>
                 <div className="flex-1 flex-center">
                   <p className="feature-text g_text">
-                  Titanium has one of the best strength-to-weight ratios of any metal, making these our {' '}
-                    <span className="text-white">
-                    lightest Pro models ever.
-                    </span>
+                    Titanium has one of the best strength-to-weight ratios of any metal, making
+                    these our <span className="text-white">lightest Pro models ever.</span>
                     You'll notice the difference the moment you pick one up.
                   </p>
                 </div>
